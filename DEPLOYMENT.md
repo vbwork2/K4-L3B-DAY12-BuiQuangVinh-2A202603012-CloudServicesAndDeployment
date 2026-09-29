@@ -10,16 +10,16 @@
 
 | Mục | Nội dung |
 |-----|----------|
-| Họ và tên | (điền họ tên) |
-| Mã học viên | (điền mã học viên) |
-| Repo | (điền link repo K4-L3B-DAY12-HoVaTen-MSSV-CloudServicesAndDeployment) |
+| Họ và tên | Bùi Quang Vinh |
+| Mã học viên | 2A202603012 |
+| Repo | https://github.com/vbwork2/K4-L3B-DAY12-BuiQuangVinh-2A202603012-CloudServicesAndDeployment |
 
 ## Service
 
 | Mục | Nội dung |
 |-----|----------|
-| Public URL | https://TODO-thay-bang-url-that.up.railway.app |
-| Platform | Railway / Render / Cloud Run — (điền platform bạn dùng) |
+| Public URL | https://k4-l3b-day12-buiquangvinh-2a202603012-cloudservi-production.up.railway.app |
+| Platform | Railway |
 | Ngày deploy | (điền ngày) |
 
 ## Biến Môi Trường Đã Set Trên Cloud
@@ -28,12 +28,12 @@ Ghi tên biến và **nguồn giá trị**, không ghi giá trị:
 
 | Biến | Đã set | Ghi chú |
 |------|--------|---------|
-| `PORT` | ✅ | platform tự gán |
-| `AGENT_API_KEY` | ✅ | đặt trong dashboard, không nằm trong repo |
-| `REDIS_URL` | ✅ | (điền: Redis add-on của platform / Upstash / ...) |
-| `RATE_LIMIT_PER_MINUTE` | ✅ | 10 |
-| `MONTHLY_BUDGET_USD` | ✅ | 10.0 |
-| `LOG_LEVEL` | ✅ | INFO |
+| `PORT` | Chưa xác minh | platform tự gán khi deploy |
+| `AGENT_API_KEY` | Chưa xác minh | đặt trong dashboard, không nằm trong repo |
+| `REDIS_URL` | Chưa xác minh | tham chiếu Redis của platform khi deploy |
+| `RATE_LIMIT_PER_MINUTE` | Chưa xác minh | dự kiến 10 |
+| `MONTHLY_BUDGET_USD` | Chưa xác minh | dự kiến 10.0 |
+| `LOG_LEVEL` | Chưa xác minh | dự kiến INFO |
 
 ## Lệnh Kiểm Tra
 

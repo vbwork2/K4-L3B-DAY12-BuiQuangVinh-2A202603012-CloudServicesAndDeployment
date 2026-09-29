@@ -6,7 +6,7 @@
 > Cách trả lời: thay dòng trả lời mẫu ở mỗi câu bằng câu trả lời.
 > `grade.py` đếm số câu đã trả lời (15 điểm cho 10 câu).
 >
-> Họ và tên: ..........................  Mã học viên: ..........................
+> Họ và tên: Bùi Quang Vinh  Mã học viên: 2A202603012
 
 ---
 
