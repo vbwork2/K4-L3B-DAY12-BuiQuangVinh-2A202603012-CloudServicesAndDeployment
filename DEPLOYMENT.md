@@ -20,7 +20,7 @@
 |-----|----------|
 | Public URL | https://k4-l3b-day12-buiquangvinh-2a202603012-cloudservi-production.up.railway.app |
 | Platform | Railway |
-| Ngày deploy | (điền ngày) |
+| Ngày deploy | 2026-09-29 |
 
 ## Biến Môi Trường Đã Set Trên Cloud
 
@@ -28,12 +28,12 @@ Ghi tên biến và **nguồn giá trị**, không ghi giá trị:
 
 | Biến | Đã set | Ghi chú |
 |------|--------|---------|
-| `PORT` | Chưa xác minh | platform tự gán khi deploy |
-| `AGENT_API_KEY` | Chưa xác minh | đặt trong dashboard, không nằm trong repo |
-| `REDIS_URL` | Chưa xác minh | tham chiếu Redis của platform khi deploy |
-| `RATE_LIMIT_PER_MINUTE` | Chưa xác minh | dự kiến 10 |
-| `MONTHLY_BUDGET_USD` | Chưa xác minh | dự kiến 10.0 |
-| `LOG_LEVEL` | Chưa xác minh | dự kiến INFO |
+| `PORT` | Có | đặt 8000 qua Railway CLI, khớp cổng của public domain |
+| `AGENT_API_KEY` | Có | Railway Variables; không ghi giá trị vào repo |
+| `REDIS_URL` | Có | tham chiếu `${{Redis.REDIS_URL}}` tới service Redis cùng project |
+| `RATE_LIMIT_PER_MINUTE` | Có | Railway Variables; kiểm tra thực tế chặn từ request thứ 11 |
+| `MONTHLY_BUDGET_USD` | Có | Railway Variables |
+| `LOG_LEVEL` | Có | Railway Variables |
 
 ## Lệnh Kiểm Tra
 
@@ -73,7 +73,11 @@ done; echo
 Dán output của các lệnh trên vào đây:
 
 ```
-(điền output)
+GET /health: HTTP 200, {"status":"ok","service":"day12-agent","version":"1.0.0"}
+GET /ready: HTTP 200, {"status":"ready","redis":true}
+POST /ask không có API key: HTTP 401
+POST /ask có API key: HTTP 200, có answer, history_length=0
+15 POST /ask cùng X-User-Id: 200 200 200 200 200 200 200 200 200 200 429 429 429 429 429
 ```
 
 ## Ảnh Chụp Màn Hình
@@ -97,5 +101,5 @@ Không đăng ký được tài khoản cloud? Vẫn nộp được bài, nhưng
 5. Ghi rõ lý do không deploy được vào phần dưới đây:
 
 ```
-(điền lý do nếu dùng phương án dự phòng, ngược lại xóa mục này)
+Không áp dụng: service đã deploy trên Railway và kết nối Redis thành công.
 ```

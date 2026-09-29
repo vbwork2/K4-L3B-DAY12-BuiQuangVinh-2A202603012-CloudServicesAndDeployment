@@ -116,4 +116,4 @@ Ghi lại **một** lỗi bạn gặp khi deploy lên cloud (build fail, health 
 timeout, sai REDIS_URL, app không đọc `$PORT`...): thông báo lỗi là gì, bạn
 tìm ra nguyên nhân bằng cách nào, và sửa ra sao?
 
-> *Câu trả lời của bạn*
+Lúc đầu public URL gọi được `/health` (HTTP 200) nhưng `/ready` trả HTTP 503 với `{"status":"not ready","redis":false}`. Tôi dùng Railway CLI xem tên và loại biến môi trường của service ứng dụng, phát hiện `REDIS_URL` trỏ tới `localhost` dù Redis chạy ở service riêng trên Railway. Tôi đổi `REDIS_URL` thành tham chiếu `${{Redis.REDIS_URL}}` và deploy lại bằng `railway up`. Sau đó `/ready` trả HTTP 200 với `{"status":"ready","redis":true}`. Tôi cũng đọc log thấy ứng dụng chạy ở cổng 8080 trong khi public domain đặt cổng 8000, nên đặt `PORT=8000` trên service để khớp cấu hình mạng.
