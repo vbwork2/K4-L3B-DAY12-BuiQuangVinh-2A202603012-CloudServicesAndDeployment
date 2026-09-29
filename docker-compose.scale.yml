@@ -1,0 +1,4 @@
+# Remove the fixed host port so three agent containers can run together.
+services:
+  agent:
+    ports: !override []
